@@ -35,15 +35,6 @@ skinTone('🦄', skinTone.DARK_BROWN); // or skinTone('🦄', 5);
 
 ## API
 
-### Skin tone color name constants
-
-- `skinTone.NONE = 0`
-- `skinTone.WHITE = 1`
-- `skinTone.CREAM_WHITE = 2`
-- `skinTone.LIGHT_BROWN = 3`
-- `skinTone.BROWN = 4`
-- `skinTone.DARK_BROWN = 5`
-
 ### skinTone(emoji, type)
 
 #### emoji
