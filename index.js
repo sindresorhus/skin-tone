@@ -55,7 +55,7 @@ function typeAsNumber(emoji, type) {
 }
 
 function typeAsString(emoji, type) {
-	const typeAsName = snakeCase(type).toUpperCase();
+	const typeAsName = snakeCase(type.replace(/\d/g, ' ')).toUpperCase();
 	const skinTone = skinTones.filter(x => x.name === typeAsName)[0];
 	if (!skinTone) {
 		throw new TypeError(`Expected \`type\` to be a string matching one of skin tone names, got ${type}`);
