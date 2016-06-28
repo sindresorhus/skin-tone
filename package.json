@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "ava": "*",
+    "lodash.capitalize": "^4.1.1",
     "xo": "*"
   }
 }
