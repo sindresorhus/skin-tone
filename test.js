@@ -1,7 +1,7 @@
 import test from 'ava';
 import m from './';
 
-test(t => {
+test('modify skin tone', t => {
 	t.is(m('👍', 0), '👍');
 	t.is(m('👍', 1), '👍🏻');
 	t.is(m('👍', 2), '👍🏼');
@@ -14,7 +14,7 @@ test(t => {
 	t.is(m('👍🏿', 1), '👍🏻');
 });
 
-test('Color name constants', t => {
+test('constants', t => {
 	t.is(m.NONE, 0);
 	t.is(m.WHITE, 1);
 	t.is(m.CREAM_WHITE, 2);
