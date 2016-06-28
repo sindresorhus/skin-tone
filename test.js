@@ -76,9 +76,11 @@ function testAsString(t, emoji, type, expected) {
 	const lowerCaseName = name => name.toLowerCase();
 	const capitalizedName = name => capitalize(name);
 	const spacedName = name => name.replace(/_/g, ' ');
+	const addStuff = name => name.replace(/_/g, '_ + -* ~_');
+	const addStuffAndNumbers = name => name.replace(/_/g, '_ + 1-* 3~_');
 
 	// Generate permutations of mapping functions and test if the module returns expected result.
-	permutations([constantName, upperCaseName, lowerCaseName, capitalizedName, spacedName])
+	permutations([constantName, upperCaseName, lowerCaseName, capitalizedName, spacedName, addStuff, addStuffAndNumbers])
 		.forEach(fns => {
 			t.is(m(emoji, apply(type, fns)), expected);
 			t.is(m(emoji, applyRight(type, fns)), expected);
