@@ -2,7 +2,7 @@ import test from 'ava';
 import capitalize from 'lodash.capitalize';
 import m from './';
 
-test('modify skin tone', t => {
+test('numeric type', t => {
 	t.is(m('👍', 0), '👍');
 	t.is(m('👍', 1), '👍🏻');
 	t.is(m('👍', 2), '👍🏼');
