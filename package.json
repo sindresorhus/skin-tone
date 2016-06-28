@@ -34,6 +34,7 @@
     "remove"
   ],
   "dependencies": {
+    "lodash.snakecase": "^4.0.1",
     "unicode-emoji-modifier-base": "^1.0.0"
   },
   "devDependencies": {
