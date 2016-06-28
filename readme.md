@@ -48,12 +48,12 @@ Emoji to modify.
 Type: `number`<br>
 Values:
 
-- `skinTone.NONE` / `0`: None
-- `skinTone.WHITE` / `1`: 🏻 White        *(Fitzpatrick Type-1–2)*
-- `skinTone.CREAM_WHITE` / `2`: 🏼 Cream white  *(Fitzpatrick Type-3)*
-- `skinTone.LIGHT_BROWN` / `3`: 🏽 Light brown  *(Fitzpatrick Type-4)*
-- `skinTone.BROWN` / `4`: 🏾 Brown        *(Fitzpatrick Type-5)*
-- `skinTone.DARK_BROWN` / `5`: 🏿 Dark brown   *(Fitzpatrick Type-6)*
+- `skinTone.NONE` / `0`: (Removes skin tone)
+- `skinTone.WHITE` / `1`: 🏻         *(Fitzpatrick Type-1–2)*
+- `skinTone.CREAM_WHITE` / `2`: 🏼   *(Fitzpatrick Type-3)*
+- `skinTone.LIGHT_BROWN` / `3`: 🏽   *(Fitzpatrick Type-4)*
+- `skinTone.BROWN` / `4`: 🏾         *(Fitzpatrick Type-5)*
+- `skinTone.DARK_BROWN` / `5`: 🏿    *(Fitzpatrick Type-6)*
 
 
 ## License
