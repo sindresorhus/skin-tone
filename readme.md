@@ -24,6 +24,12 @@ skinTone('👍', skinTone.BROWN);
 skinTone('👍', 4);
 //=> '👍🏾
 
+// can also use name
+skinTone('👍', 'dark');
+//=> '👍🏾
+skinTone('👍', 'dark brown');
+//=> '👍🏿'
+
 skinTone('👍', skinTone.WHITE);
 //=> '👍🏻'
 
@@ -49,8 +55,9 @@ Emoji to modify.
 
 #### type
 
-Type: `number`<br>
-Values:
+Type: `number|string`
+
+Values if `number`:
 
 - `skinTone.NONE` / `0`: (Removes skin tone)
 - `skinTone.WHITE` / `1`: 🏻         *(Fitzpatrick Type-1–2)*
@@ -58,6 +65,22 @@ Values:
 - `skinTone.LIGHT_BROWN` / `3`: 🏽   *(Fitzpatrick Type-4)*
 - `skinTone.BROWN` / `4`: 🏾         *(Fitzpatrick Type-5)*
 - `skinTone.DARK_BROWN` / `5`: 🏿    *(Fitzpatrick Type-6)*
+
+Values if `string`:
+
+Any of the above constants in any capitalization or characters in beweeen. Here are some examples for *(Fitzpatrick Type-6)* (Dark Brown):
+
+- `'DARK_BROWN'`: same as constant name
+- `'dark brown'`: human readable
+- `'dark   brown'`: more spaces
+- `'dark+~:_- *^ %$ #*#brown'`: non-word characters
+
+Any of the above would produce the same result as `skinTone.DARK_BROWN`.
+
+What *does not* work:
+
+- Misspelling: `'dank brown'`
+- Putting space in the middle of a word: `'dark bro wn'`
 
 
 ## License
