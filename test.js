@@ -27,6 +27,23 @@ test('string type', t => {
 	testAsString(t, '🐶', 'DARK_BROWN', '🐶');
 	testAsString(t, '👍🏿', 'WHITE', '👍🏻');
 });
+
+test('unexpected inputs', t => {
+	// number out of range
+	t.throws(() => m('👍🏿', -1));
+	t.throws(() => m('👍🏿', 6));
+	// string not matching any name
+	t.throws(() => m('👍🏿', ''));
+	t.throws(() => m('👍🏿', 'blue'));
+	t.throws(() => m('👍🏿', '🦄'));
+	// unrecognized type
+	t.throws(() => m('👍🏿'));
+	t.throws(() => m('👍🏿', null));
+	t.throws(() => m('👍🏿', {}));
+	t.throws(() => m('👍🏿', []));
+	t.throws(() => m('👍🏿', () => {}));
+});
+
 test('constants', t => {
 	t.is(m.NONE, 0);
 	t.is(m.WHITE, 1);

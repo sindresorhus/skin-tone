@@ -64,12 +64,16 @@ function typeAsString(emoji, type) {
 	return skinTone;
 }
 
+function typeUnsupported(emoji, type) {
+	throw new TypeError(`Expected \`type\` to be either a number between 0 and 5 or a string matching one of skin tone names, got ${type}`);
+}
+
 module.exports = (emoji, type) => {
 	const fnByType = (() => {
 		switch (typeof type) {
 			case 'number': return typeAsNumber;
 			case 'string': return typeAsString;
-			default: return () => {};
+			default: return typeUnsupported;
 		}
 	})();
 	return processEmoji(iterateSkinTones(emoji), fnByType(emoji, type));
