@@ -17,18 +17,22 @@ $ npm install --save skin-tone
 ```js
 const skinTone = require('skin-tone');
 
-skinTone('👍', skinTone.BROWN); // or skinTone('👍', 4);
+skinTone('👍', skinTone.BROWN);
 //=> '👍🏾'
 
-skinTone('👍', skinTone.WHITE); // or skinTone('👍', 1);
+// or without using the constant (ids described below)
+skinTone('👍', 4);
+//=> '👍🏾
+
+skinTone('👍', skinTone.WHITE);
 //=> '👍🏻'
 
 // can also remove skin tone
-skinTone('👍🏾', skinTone.NONE); // or skinTone('👍🏾', 0);
+skinTone('👍🏾', skinTone.NONE);
 //=> '👍'
 
 // just passes it through when not supported
-skinTone('🦄', skinTone.DARK_BROWN); // or skinTone('🦄', 5);
+skinTone('🦄', skinTone.DARK_BROWN);
 //=> '🦄'
 ```
 
