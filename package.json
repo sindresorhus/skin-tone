@@ -34,10 +34,12 @@
     "remove"
   ],
   "dependencies": {
+    "lodash.snakecase": "^4.0.1",
     "unicode-emoji-modifier-base": "^1.0.0"
   },
   "devDependencies": {
     "ava": "*",
+    "lodash.capitalize": "^4.1.1",
     "xo": "*"
   }
 }
