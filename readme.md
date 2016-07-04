@@ -17,18 +17,22 @@ $ npm install --save skin-tone
 ```js
 const skinTone = require('skin-tone');
 
-skinTone('👍', 4);
+skinTone('👍', skinTone.BROWN);
 //=> '👍🏾'
 
-skinTone('👍', 1);
+// or without using the constant (ids described below)
+skinTone('👍', 4);
+//=> '👍🏾
+
+skinTone('👍', skinTone.WHITE);
 //=> '👍🏻'
 
 // can also remove skin tone
-skinTone('👍🏾', 0);
+skinTone('👍🏾', skinTone.NONE);
 //=> '👍'
 
 // just passes it through when not supported
-skinTone('🦄', 5);
+skinTone('🦄', skinTone.DARK_BROWN);
 //=> '🦄'
 ```
 
@@ -48,12 +52,12 @@ Emoji to modify.
 Type: `number`<br>
 Values:
 
-- `0` None
-- `1` 🏻 White        *(Fitzpatrick Type-1–2)*
-- `2` 🏼 Cream white  *(Fitzpatrick Type-3)*
-- `3` 🏽 Light brown  *(Fitzpatrick Type-4)*
-- `4` 🏾 Brown        *(Fitzpatrick Type-5)*
-- `5` 🏿 Dark brown   *(Fitzpatrick Type-6)*
+- `skinTone.NONE` / `0`: (Removes skin tone)
+- `skinTone.WHITE` / `1`: 🏻         *(Fitzpatrick Type-1–2)*
+- `skinTone.CREAM_WHITE` / `2`: 🏼   *(Fitzpatrick Type-3)*
+- `skinTone.LIGHT_BROWN` / `3`: 🏽   *(Fitzpatrick Type-4)*
+- `skinTone.BROWN` / `4`: 🏾         *(Fitzpatrick Type-5)*
+- `skinTone.DARK_BROWN` / `5`: 🏿    *(Fitzpatrick Type-6)*
 
 
 ## License
