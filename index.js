@@ -2,12 +2,30 @@
 const emojiModifierBase = require('unicode-emoji-modifier-base');
 
 const skinTones = [
-	'',
-	'🏻',
-	'🏼',
-	'🏽',
-	'🏾',
-	'🏿'
+	{
+		name: 'NONE',
+		color: ''
+	},
+	{
+		name: 'WHITE',
+		color: '🏻'
+	},
+	{
+		name: 'CREAM_WHITE',
+		color: '🏼'
+	},
+	{
+		name: 'LIGHT_BROWN',
+		color: '🏽'
+	},
+	{
+		name: 'BROWN',
+		color: '🏾'
+	},
+	{
+		name: 'DARK_BROWN',
+		color: '🏿'
+	}
 ];
 
 module.exports = (emoji, type) => {
@@ -18,12 +36,16 @@ module.exports = (emoji, type) => {
 	// TODO: use this instead when targeting Node.js 6
 	// emoji = emoji.replace(/[\u{1f3fb}-\u{1f3ff}]/u, '');
 	skinTones.forEach(x => {
-		emoji = emoji.replace(x, '');
+		emoji = emoji.replace(x.color, '');
 	});
 
 	if (emojiModifierBase.has(emoji.codePointAt(0)) && type !== 0) {
-		emoji += skinTones[type];
+		emoji += skinTones[type].color;
 	}
 
 	return emoji;
 };
+
+skinTones.forEach((x, i) => {
+	Object.defineProperty(module.exports, x.name, {value: i, enumerable: true});
+});
