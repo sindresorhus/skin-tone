@@ -8,7 +8,7 @@ The [Fitzpatrick scale](https://en.wikipedia.org/wiki/Fitzpatrick_scale#Unicode)
 ## Install
 
 ```
-$ npm install --save skin-tone
+$ npm install skin-tone
 ```
 
 
@@ -59,6 +59,7 @@ Values:
 - `skinTone.BROWN`       | `4`: 🏾   *(Fitzpatrick Type-5)*
 - `skinTone.DARK_BROWN`  | `5`: 🏿   *(Fitzpatrick Type-6)*
 
+Skin tone to use for `emoji`.
 
 ## License
 

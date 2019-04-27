@@ -33,11 +33,7 @@ module.exports = (emoji, type) => {
 		throw new TypeError(`Expected \`type\` to be a number between 0 and 5, got ${type}`);
 	}
 
-	// TODO: Use this instead when targeting Node.js 6
-	// emoji = emoji.replace(/[\u{1f3fb}-\u{1f3ff}]/u, '');
-	skinTones.forEach(x => {
-		emoji = emoji.replace(x.color, '');
-	});
+	emoji = emoji.replace(/[\u{1f3fb}-\u{1f3ff}]/u, '');
 
 	if (emojiModifierBase.has(emoji.codePointAt(0)) && type !== 0) {
 		emoji += skinTones[type].color;
@@ -46,6 +42,6 @@ module.exports = (emoji, type) => {
 	return emoji;
 };
 
-skinTones.forEach((x, i) => {
-	Object.defineProperty(module.exports, x.name, {value: i, enumerable: true});
+skinTones.forEach((skinTone, index) => {
+	Object.defineProperty(module.exports, skinTone.name, {value: index, enumerable: true});
 });

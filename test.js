@@ -1,24 +1,24 @@
 import test from 'ava';
-import m from './';
+import skinTone from '.';
 
 test('modify skin tone', t => {
-	t.is(m('👍', 0), '👍');
-	t.is(m('👍', 1), '👍🏻');
-	t.is(m('👍', 2), '👍🏼');
-	t.is(m('👍', 3), '👍🏽');
-	t.is(m('👍', 4), '👍🏾');
-	t.is(m('👍', 5), '👍🏿');
-	t.is(m('👍🏿', 0), '👍');
-	t.is(m('👸', 3), '👸🏽');
-	t.is(m('🐶', 5), '🐶');
-	t.is(m('👍🏿', 1), '👍🏻');
+	t.is(skinTone('👍', 0), '👍');
+	t.is(skinTone('👍', 1), '👍🏻');
+	t.is(skinTone('👍', 2), '👍🏼');
+	t.is(skinTone('👍', 3), '👍🏽');
+	t.is(skinTone('👍', 4), '👍🏾');
+	t.is(skinTone('👍', 5), '👍🏿');
+	t.is(skinTone('👍🏿', 0), '👍');
+	t.is(skinTone('👸', 3), '👸🏽');
+	t.is(skinTone('🐶', 5), '🐶');
+	t.is(skinTone('👍🏿', 1), '👍🏻');
 });
 
 test('constants', t => {
-	t.is(m.NONE, 0);
-	t.is(m.WHITE, 1);
-	t.is(m.CREAM_WHITE, 2);
-	t.is(m.LIGHT_BROWN, 3);
-	t.is(m.BROWN, 4);
-	t.is(m.DARK_BROWN, 5);
+	t.is(skinTone.NONE, 0);
+	t.is(skinTone.WHITE, 1);
+	t.is(skinTone.CREAM_WHITE, 2);
+	t.is(skinTone.LIGHT_BROWN, 3);
+	t.is(skinTone.BROWN, 4);
+	t.is(skinTone.DARK_BROWN, 5);
 });
