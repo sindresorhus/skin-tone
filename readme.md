@@ -58,6 +58,7 @@ Skin tone to use for `emoji`.
 
 Skin tone to use for `emoji`.
 
+
 ## License
 
 MIT © [Sindre Sorhus](https://sindresorhus.com)
