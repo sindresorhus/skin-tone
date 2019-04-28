@@ -1,10 +1,12 @@
-import {expectType} from 'tsd';
+import {expectType, expectError} from 'tsd';
 import skinTone = require('.');
 
-expectType<string>(skinTone('👍', 4));
-expectType<string>(skinTone('👍', skinTone.NONE));
-expectType<string>(skinTone('👍', skinTone.WHITE));
-expectType<string>(skinTone('👍', skinTone.CREAM_WHITE));
-expectType<string>(skinTone('👍', skinTone.LIGHT_BROWN));
-expectType<string>(skinTone('👍', skinTone.BROWN));
-expectType<string>(skinTone('👍', skinTone.DARK_BROWN));
+const tone: skinTone.Tone = 'none';
+
+expectType<string>(skinTone('👍', 'none'));
+expectType<string>(skinTone('👍', 'white'));
+expectType<string>(skinTone('👍', 'creamWhite'));
+expectType<string>(skinTone('👍', 'lightBrown'));
+expectType<string>(skinTone('👍', 'brown'));
+expectType<string>(skinTone('👍', 'darkBrown'));
+expectError(skinTone('👍', 'foo'));

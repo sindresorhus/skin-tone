@@ -1,71 +1,45 @@
-declare const skinTone: {
-	/**
-	Change the skin tone of an emoji 👌👌🏻👌🏼👌🏽👌🏾👌🏿.
+declare namespace skinTone {
+	type Tone =
+		| 'none'
+		| 'white'
+		| 'creamWhite'
+		| 'lightBrown'
+		| 'brown'
+		| 'darkBrown';
+}
 
-	@param emoji - Emoji to modify.
-	@param type - Skin tone to use for `emoji`.
+/**
+Change the skin tone of an emoji 👌👌🏻👌🏼👌🏽👌🏾👌🏿.
 
-	- `skinTone.NONE`        | `0`:      *(Removes skin tone)*
-	- `skinTone.WHITE`       | `1`: 🏻   *(Fitzpatrick Type-1–2)*
-	- `skinTone.CREAM_WHITE` | `2`: 🏼   *(Fitzpatrick Type-3)*
-	- `skinTone.LIGHT_BROWN` | `3`: 🏽   *(Fitzpatrick Type-4)*
-	- `skinTone.BROWN`       | `4`: 🏾   *(Fitzpatrick Type-5)*
-	- `skinTone.DARK_BROWN`  | `5`: 🏿   *(Fitzpatrick Type-6)*
+@param emoji - Emoji to modify.
+@param tone - Skin tone to use for `emoji`.
 
-	@example
-	```
-	import skinTone = require('skin-tone');
+- `'none'`       :      *(Removes skin tone)*
+- `'white'`      : 🏻   *(Fitzpatrick Type-1–2)*
+- `'creamWhite'` : 🏼   *(Fitzpatrick Type-3)*
+- `'lightBrown'` : 🏽   *(Fitzpatrick Type-4)*
+- `'brown'`      : 🏾   *(Fitzpatrick Type-5)*
+- `'darkBrown'`  : 🏿   *(Fitzpatrick Type-6)*
 
-	skinTone('👍', skinTone.BROWN);
-	//=> '👍🏾'
+@example
+```
+import skinTone = require('skin-tone');
 
-	// or by using the constant value directly
-	skinTone('👍', 4);
-	//=> '👍🏾
+skinTone('👍', 'brown');
+//=> '👍🏾'
 
-	skinTone('👍', skinTone.WHITE);
-	//=> '👍🏻'
+skinTone('👍', 'white');
+//=> '👍🏻'
 
-	// can also remove skin tone
-	skinTone('👍🏾', skinTone.NONE);
-	//=> '👍'
+// can also remove skin tone
+skinTone('👍🏾', 'none');
+//=> '👍'
 
-	// just passes it through when not supported
-	skinTone('🦄', skinTone.DARK_BROWN);
-	//=> '🦄'
-	```
-	*/
-	(emoji: string, type: 0 | 1 | 2 | 3 | 4 | 5): string;
-
-	/**
-	Removes skin tone.
-	*/
-	readonly NONE: 0;
-
-	/**
-	Fitzpatrick Type-1–2: 🏻.
-	*/
-	readonly WHITE: 1;
-
-	/**
-	Fitzpatrick Type-3: 🏼.
-	*/
-	readonly CREAM_WHITE: 2;
-
-	/**
-	Fitzpatrick Type-4: 🏽.
-	*/
-	readonly LIGHT_BROWN: 3;
-
-	/**
-	Fitzpatrick Type-5: 🏾.
-	*/
-	readonly BROWN: 4;
-
-	/**
-	Fitzpatrick Type-6: 🏿.
-	*/
-	readonly DARK_BROWN: 5;
-};
+// just passes it through when not supported
+skinTone('🦄', 'darkBrown');
+//=> '🦄'
+```
+*/
+declare function skinTone(emoji: string, tone: skinTone.Tone): string;
 
 export = skinTone;
