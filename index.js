@@ -1,51 +1,25 @@
 'use strict';
 const emojiModifierBase = require('unicode-emoji-modifier-base');
 
-const skinTones = [
-	{
-		name: 'NONE',
-		color: ''
-	},
-	{
-		name: 'WHITE',
-		color: '🏻'
-	},
-	{
-		name: 'CREAM_WHITE',
-		color: '🏼'
-	},
-	{
-		name: 'LIGHT_BROWN',
-		color: '🏽'
-	},
-	{
-		name: 'BROWN',
-		color: '🏾'
-	},
-	{
-		name: 'DARK_BROWN',
-		color: '🏿'
-	}
-];
+const skinTones = new Map([
+	['none', ''],
+	['white', '🏻'],
+	['creamWhite', '🏼'],
+	['lightBrown', '🏽'],
+	['brown', '🏾'],
+	['darkBrown', '🏿']
+]);
 
-module.exports = (emoji, type) => {
-	if (type > 5 || type < 0) {
-		throw new TypeError(`Expected \`type\` to be a number between 0 and 5, got ${type}`);
+module.exports = (emoji, tone) => {
+	if (!skinTones.has(tone)) {
+		throw new TypeError(`Unexpected \`skinTone\` name: ${tone}`);
 	}
 
-	// TODO: Use this instead when targeting Node.js 6
-	// emoji = emoji.replace(/[\u{1f3fb}-\u{1f3ff}]/u, '');
-	skinTones.forEach(x => {
-		emoji = emoji.replace(x.color, '');
-	});
+	emoji = emoji.replace(/[\u{1f3fb}-\u{1f3ff}]/u, '');
 
-	if (emojiModifierBase.has(emoji.codePointAt(0)) && type !== 0) {
-		emoji += skinTones[type].color;
+	if (emojiModifierBase.has(emoji.codePointAt(0)) && tone !== 'none') {
+		emoji += skinTones.get(tone);
 	}
 
 	return emoji;
 };
-
-skinTones.forEach((x, i) => {
-	Object.defineProperty(module.exports, x.name, {value: i, enumerable: true});
-});
