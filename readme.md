@@ -1,4 +1,4 @@
-# skin-tone [![Build Status](https://travis-ci.org/sindresorhus/skin-tone.svg?branch=master)](https://travis-ci.org/sindresorhus/skin-tone)
+# skin-tone
 
 > Change the skin tone of an emoji 👌👌🏻👌🏼👌🏽👌🏾👌🏿
 
