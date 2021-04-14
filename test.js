@@ -1,5 +1,5 @@
 import test from 'ava';
-import skinTone from '.';
+import skinTone from './index.js';
 
 test('main', t => {
 	t.is(skinTone('👍', 'none'), '👍');

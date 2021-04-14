@@ -4,18 +4,16 @@
 
 The [Fitzpatrick scale](https://en.wikipedia.org/wiki/Fitzpatrick_scale#Unicode) is used to specify skin tones for emoji characters which represent humans.
 
-
 ## Install
 
 ```
 $ npm install skin-tone
 ```
 
-
 ## Usage
 
 ```js
-const skinTone = require('skin-tone');
+import skinTone from 'skin-tone';
 
 skinTone('👍', 'brown');
 //=> '👍🏾'
@@ -23,19 +21,18 @@ skinTone('👍', 'brown');
 skinTone('👍', 'white');
 //=> '👍🏻'
 
-// can also remove skin tone
+// Can also remove skin tone.
 skinTone('👍🏾', 'none');
 //=> '👍'
 
-// just passes it through when not supported
+// Just passes it through when not supported.
 skinTone('🦄', 'darkBrown');
 //=> '🦄'
 ```
 
-
 ## API
 
-### skinTone(emoji, tone)
+### skinTone(emoji, type)
 
 #### emoji
 
@@ -43,7 +40,7 @@ Type: `string`
 
 Emoji to modify.
 
-#### tone
+#### type
 
 Type: `'none' | 'white' | 'creamWhite' | 'lightBrown' | 'brown' | 'darkBrown'`
 
@@ -57,8 +54,3 @@ Skin tone to use for `emoji`.
 - `'darkBrown'`  : 🏿   *(Fitzpatrick Type-6)*
 
 Skin tone to use for `emoji`.
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)

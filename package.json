@@ -4,13 +4,16 @@
 	"description": "Change the skin tone of an emoji 👌👌🏻👌🏼👌🏽👌🏾👌🏿",
 	"license": "MIT",
 	"repository": "sindresorhus/skin-tone",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"url": "https://sindresorhus.com"
 	},
+	"type": "module",
+	"exports": "./index.js",
 	"engines": {
-		"node": ">=8"
+		"node": ">=12"
 	},
 	"scripts": {
 		"test": "xo && ava && tsd"
@@ -38,8 +41,8 @@
 		"unicode-emoji-modifier-base": "^1.0.0"
 	},
 	"devDependencies": {
-		"ava": "^1.4.1",
-		"tsd": "^0.7.2",
-		"xo": "^0.24.0"
+		"ava": "^3.15.0",
+		"tsd": "^0.14.0",
+		"xo": "^0.38.2"
 	}
 }

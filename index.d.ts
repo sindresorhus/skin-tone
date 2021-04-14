@@ -1,12 +1,10 @@
-declare namespace skinTone {
-	type Tone =
-		| 'none'
-		| 'white'
-		| 'creamWhite'
-		| 'lightBrown'
-		| 'brown'
-		| 'darkBrown';
-}
+export type SkinToneType =
+	| 'none'
+	| 'white'
+	| 'creamWhite'
+	| 'lightBrown'
+	| 'brown'
+	| 'darkBrown';
 
 /**
 Change the skin tone of an emoji 👌👌🏻👌🏼👌🏽👌🏾👌🏿.
@@ -23,7 +21,7 @@ Change the skin tone of an emoji 👌👌🏻👌🏼👌🏽👌🏾👌🏿.
 
 @example
 ```
-import skinTone = require('skin-tone');
+import skinTone from 'skin-tone';
 
 skinTone('👍', 'brown');
 //=> '👍🏾'
@@ -40,6 +38,4 @@ skinTone('🦄', 'darkBrown');
 //=> '🦄'
 ```
 */
-declare function skinTone(emoji: string, tone: skinTone.Tone): string;
-
-export = skinTone;
+export default function skinTone(emoji: string, type: SkinToneType): string;

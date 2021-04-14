@@ -1,7 +1,7 @@
 import {expectType, expectError} from 'tsd';
-import skinTone = require('.');
+import skinTone, {SkinToneType} from './index.js';
 
-const tone: skinTone.Tone = 'none';
+const tone: SkinToneType = 'none';
 
 expectType<string>(skinTone('👍', 'none'));
 expectType<string>(skinTone('👍', 'white'));
