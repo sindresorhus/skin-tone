@@ -18,7 +18,7 @@ export default function skinTone(emoji, tone) {
 
 	emoji = emoji.replaceAll(/[\u{1F3FB}-\u{1F3FF}]/ug, '');
 
-	if (tone !== 'none' && (emoji).match(emojiBaseModifierRegex).length < 3 && !twoFamilyEmojis.has(emoji)) {
+	if (tone !== 'none' && (emoji).match(emojiBaseModifierRegex)?.length < 3 && !twoFamilyEmojis.has(emoji)) {
 		const emojiArray = [...emoji];
 		emoji = '';
 
