@@ -6,8 +6,8 @@ The [Fitzpatrick scale](https://en.wikipedia.org/wiki/Fitzpatrick_scale#Unicode)
 
 ## Install
 
-```
-$ npm install skin-tone
+```sh
+npm install skin-tone
 ```
 
 ## Usage

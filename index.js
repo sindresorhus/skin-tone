@@ -6,7 +6,7 @@ const skinTones = new Map([
 	['creamWhite', '🏼'],
 	['lightBrown', '🏽'],
 	['brown', '🏾'],
-	['darkBrown', '🏿']
+	['darkBrown', '🏿'],
 ]);
 
 export default function skinTone(emoji, tone) {

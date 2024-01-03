@@ -1,5 +1,5 @@
 import {expectType, expectError} from 'tsd';
-import skinTone, {SkinToneType} from './index.js';
+import skinTone, {type SkinToneType} from './index.js';
 
 const tone: SkinToneType = 'none';
 
