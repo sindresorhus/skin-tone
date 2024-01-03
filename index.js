@@ -4,7 +4,7 @@ const skinTones = new Map([
 	['creamWhite', '🏼'],
 	['lightBrown', '🏽'],
 	['brown', '🏾'],
-	['darkBrown', '🏿']
+	['darkBrown', '🏿'],
 ]);
 
 // This emoji modifier base \p{Emoji_Modifier_Base} is present in emojis that the skin tone can apply to
