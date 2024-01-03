@@ -9,7 +9,7 @@ const skinTones = new Map([
 
 // This emoji modifier base \p{Emoji_Modifier_Base} is present in emojis that the skin tone can apply to
 const emojiBaseModifierRegex = /\p{Emoji_Modifier_Base}/ug;
-// Emoji presentation selector takes the same place as skin tone modifier
+// Emoji presentation selector takes the same place as skin tone modifier https://unicode.org/reports/tr51/#composing_zwj_seq
 // So it should be removed if present, otherwise it causes issues like this '🕵🏼️‍♀️'
 const emojiPresentationSelector = '\u{FE0F}';
 // Skin tones aren't supported for family emojis
