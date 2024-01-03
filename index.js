@@ -9,7 +9,7 @@ const skinTones = new Map([
 
 const emojiBaseModifierRegex = /\p{Emoji_Modifier_Base}/ug;
 const unicodeVariationSelector = '\uFE0F';
-const twoFamilyEmojis = ['👩‍👦', '👩‍👧', '👨‍👧', '👨‍👦'];
+const twoFamilyEmojis = new Set(['👩‍👦', '👩‍👧', '👨‍👧', '👨‍👦']);
 
 export default function skinTone(emoji, tone) {
 	if (!skinTones.has(tone)) {
@@ -18,17 +18,20 @@ export default function skinTone(emoji, tone) {
 
 	emoji = emoji.replaceAll(/[\u{1F3FB}-\u{1F3FF}]/ug, '');
 
-	if (tone !== 'none' && (emoji).match(emojiBaseModifierRegex).length < 3 && !twoFamilyEmojis.includes(emoji)) {
-		emoji = [...emoji].reduce((res, char, idx, arr) => {
-			if (idx !== arr.length - 1 && char === unicodeVariationSelector) {
-				return res;
+	if (tone !== 'none' && (emoji).match(emojiBaseModifierRegex).length < 3 && !twoFamilyEmojis.has(emoji)) {
+		const emojiArray = [...emoji];
+		emoji = '';
+
+		for (let i = 0; i < emojiArray.length; i++) {
+			if (i !== emojiArray.length - 1 && emojiArray[i] === unicodeVariationSelector) {
+				continue;
 			}
-			res += char;
-			if (emojiBaseModifierRegex.test(char)) {
-				res += skinTones.get(tone);
+
+			emoji += emojiArray[i];
+			if (emojiBaseModifierRegex.test(emojiArray[i])) {
+				emoji += skinTones.get(tone);
 			}
-			return res;
-		}, '');
+		}
 	}
 
 	return emoji;
