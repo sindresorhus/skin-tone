@@ -16,7 +16,7 @@ export default function skinTone(emoji, tone) {
 		throw new TypeError(`Unexpected \`skinTone\` name: ${tone}`);
 	}
 
-	emoji = emoji.replaceAll(/[\u{1F3FB}-\u{1F3FF}]/ug, '');
+	emoji = emoji.replace(/[\u{1F3FB}-\u{1F3FF}]/ug, '').replace(/[\u{1F3FB}-\u{1F3FF}]/ug, '');
 
 	if (tone !== 'none' && (emoji).match(emojiBaseModifierRegex)?.length < 3 && !twoFamilyEmojis.has(emoji)) {
 		const emojiArray = [...emoji];
