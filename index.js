@@ -1,5 +1,3 @@
-import emojiModifierBase from 'unicode-emoji-modifier-base';
-
 const skinTones = new Map([
 	['none', ''],
 	['white', '🏻'],
@@ -9,6 +7,10 @@ const skinTones = new Map([
 	['darkBrown', '🏿']
 ]);
 
+const emojiBaseModifierRegex = /\p{Emoji_Modifier_Base}/ug
+const unicodeVariationSelector = '\uFE0F'
+const twoFamilyEmojis = ['👩‍👦', '👩‍👧', '👨‍👧', '👨‍👦']
+
 export default function skinTone(emoji, tone) {
 	if (!skinTones.has(tone)) {
 		throw new TypeError(`Unexpected \`skinTone\` name: ${tone}`);
@@ -16,9 +18,18 @@ export default function skinTone(emoji, tone) {
 
 	emoji = emoji.replace(/[\u{1F3FB}-\u{1F3FF}]/u, '');
 
-	if (emojiModifierBase.has(emoji.codePointAt(0)) && tone !== 'none') {
-		emoji += skinTones.get(tone);
+	if (tone !== 'none' && (emoji).match(emojiBaseModifierRegex).length < 3 && !twoFamilyEmojis.includes(emoji)) {
+		emoji = [...emoji].reduce((res, char, idx, arr) => {
+			if (idx !== arr.length - 1 && char === unicodeVariationSelector) {
+				return res
+			}
+			res += char
+			if (emojiBaseModifierRegex.test(char)) {
+				res += skinTones.get(tone)
+			}
+			return res
+		}, '')
 	}
 
-	return emoji;
+	return emoji
 }

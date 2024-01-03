@@ -37,9 +37,6 @@
 		"strip",
 		"remove"
 	],
-	"dependencies": {
-		"unicode-emoji-modifier-base": "^1.0.0"
-	},
 	"devDependencies": {
 		"ava": "^3.15.0",
 		"tsd": "^0.14.0",
