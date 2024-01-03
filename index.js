@@ -4,7 +4,7 @@ const skinTones = new Map([
 	['creamWhite', '🏼'],
 	['lightBrown', '🏽'],
 	['brown', '🏾'],
-	['darkBrown', '🏿']
+	['darkBrown', '🏿'],
 ]);
 
 const emojiBaseModifierRegex = /\p{Emoji_Modifier_Base}/ug;
