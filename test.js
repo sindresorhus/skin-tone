@@ -12,13 +12,15 @@ test('main', t => {
 	t.is(skinTone('👸', 'lightBrown'), '👸🏽');
 	t.is(skinTone('🐶', 'darkBrown'), '🐶');
 	t.is(skinTone('👍🏿', 'white'), '👍🏻');
+
 	// Trickier emojis, where the presence of variation selector
-	// Or more than one person usually causes issues
+	// or more than one person usually causes issues.
 	t.is(skinTone('🕵️‍♀️', 'brown'), '🕵🏾‍♀');
 	t.is(skinTone('⛹️‍♀️', 'darkBrown'), '⛹🏿‍♀');
 	t.is(skinTone('👩‍❤️‍👨', 'brown'), '👩🏾‍❤‍👨🏾');
 	t.is(skinTone('👬', 'white'), '👬🏻');
-	// Family emojis don't support skin tone, so these shouldn't change
+
+	// Family emojis don't support skin tone, so these shouldn't change.
 	t.is(skinTone('👩‍👦', 'brown'), '👩‍👦');
 	t.is(skinTone('👩‍👩‍👧‍👧', 'white'), '👩‍👩‍👧‍👧');
 });
