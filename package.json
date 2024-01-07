@@ -1,6 +1,6 @@
 {
 	"name": "skin-tone",
-	"version": "3.0.0",
+	"version": "4.0.0",
 	"description": "Change the skin tone of an emoji 👌👌🏻👌🏼👌🏽👌🏾👌🏿",
 	"license": "MIT",
 	"repository": "sindresorhus/skin-tone",
