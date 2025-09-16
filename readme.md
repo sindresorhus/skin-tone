@@ -21,11 +21,11 @@ skinTone('👍', 'brown');
 skinTone('👍', 'white');
 //=> '👍🏻'
 
-// Can also remove skin tone.
+// Can also remove skin tone
 skinTone('👍🏾', 'none');
 //=> '👍'
 
-// Just passes it through when not supported.
+// Just passes it through when not supported
 skinTone('🦄', 'darkBrown');
 //=> '🦄'
 ```
@@ -53,4 +53,5 @@ Skin tone to use for `emoji`.
 - `'brown'`      : 🏾   *(Fitzpatrick Type-5)*
 - `'darkBrown'`  : 🏿   *(Fitzpatrick Type-6)*
 
-Skin tone to use for `emoji`.
+> [!NOTE]
+> `'none'` removes only skin tone modifiers. Presentation selectors (like `\uFE0F`) are not restored, because the original selector state is lost once a skin tone is applied. Both forms (`✌` and `✌️`) are valid.

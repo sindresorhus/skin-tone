@@ -25,11 +25,15 @@ export default function skinTone(emoji, tone) {
 
 	emoji = emoji.replaceAll(/[\u{1F3FB}-\u{1F3FF}]/ug, '');
 
+	if (tone === 'none') {
+		return emoji;
+	}
+
 	// This emoji modifier base is present in emojis that the skin tone can apply to.
 	const emojiBaseModifierRegex = /\p{Emoji_Modifier_Base}/ug;
 
-	// If tone is `'none'`, the emoji has more than two modifiable components, or it is a two-person family emoji, then skin tone should not be applied.
-	if (tone === 'none' || (emoji).match(emojiBaseModifierRegex)?.length > 2 || twoFamilyEmojis.has(emoji)) {
+	// If the emoji has more than two modifiable components, or it is a two-person family emoji, then skin tone should not be applied.
+	if ((emoji).match(emojiBaseModifierRegex)?.length > 2 || twoFamilyEmojis.has(emoji)) {
 		return emoji;
 	}
 

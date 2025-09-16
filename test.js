@@ -24,3 +24,16 @@ test('main', t => {
 	t.is(skinTone('👩‍👦', 'brown'), '👩‍👦');
 	t.is(skinTone('👩‍👩‍👧‍👧', 'white'), '👩‍👩‍👧‍👧');
 });
+
+test('removing skin tone', t => {
+	// Should only remove skin tone modifiers, not presentation selectors
+	t.is(skinTone('✌🏻', 'none'), '✌');
+	t.is(skinTone('🕵🏻', 'none'), '🕵');
+	t.is(skinTone('⛹🏿', 'none'), '⛹');
+	t.is(skinTone('👌🏻', 'none'), '👌');
+	t.is(skinTone('👍🏼', 'none'), '👍');
+
+	// Should preserve presentation selector if present
+	t.is(skinTone('✌️', 'none'), '✌️');
+	t.is(skinTone('🕵️', 'none'), '🕵️');
+});
